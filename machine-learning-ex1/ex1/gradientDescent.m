@@ -17,8 +17,8 @@ for iter = 1:num_iters
     %       of the cost function (computeCost) and gradient here.
     %
     h_theta = X*theta; % find expected values
-    partial_der0 = (h_theta - y)* alpha;
-    partial_der1 = X'*partial_der0;
+    partial_der0 = (h_theta - y).* alpha;
+    partial_der1 = X(:,2)' * partial_der0;
     
     theta0 = theta(1,1);
     theta1 = theta(2,1);
@@ -33,7 +33,9 @@ for iter = 1:num_iters
 
     % Save the cost J in every iteration    
     J_history(iter) = computeCost(X, y, theta);
-
+    if iter > 1,
+        assert(J_history(iter) <= J_history(iter-1));
+    end    
 end
 
 end
