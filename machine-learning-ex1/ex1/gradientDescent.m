@@ -23,8 +23,8 @@ for iter = 1:num_iters
     theta0 = theta(1,1);
     theta1 = theta(2,1);
     
-    temp0 = theta0 - alpha*(1/m)*sum(partial_der0); 
-    temp1 = theta1 - alpha*(1/m)*sum(partial_der1);
+    temp0 = theta0 - (1/m)*sum(partial_der0); 
+    temp1 = theta1 - (1/m)*sum(partial_der1);
     
     theta(1,1) = temp0; % update theta0
     theta(2,1) = temp1; % update theta1
